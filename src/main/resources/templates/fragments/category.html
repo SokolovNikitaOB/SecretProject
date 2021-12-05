@@ -1,0 +1,5 @@
+<div th:fragment="category" th:if="${category != null}">
+    <h2 th:text="'Category ID: ' + ${category.id}"/>
+    <div class="name-of-string">Name</div><div class="value-of-string" th:text="${category.name}"/>
+    <div class="name-of-string">Request ID</div><div class="value-of-string" th:text="${category.requestId}"/>
+</div>

@@ -1,0 +1,10 @@
+<div th:fragment="left-panel" class="left-panel">
+    <h2>Banners:</h2>
+    <input type="text" id="search-banner" name="search" placeholder="Enter banner name..." class="special-font-size">
+    <ul>
+        <li th:each="banner : ${banners}">
+            <a th:unless="${banner.deleted}" th:text="${banner.name}" th:href="'/banners/' + ${banner.id}" class="special-font-size"/>
+        </li>
+    </ul>
+    <button><a href="/banners/add" class="special-font-size">Create new banner</a></button>
+</div>

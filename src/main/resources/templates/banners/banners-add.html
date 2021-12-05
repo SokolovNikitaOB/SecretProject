@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/banners-style.css">
+    <link rel="stylesheet" href="../../chosen/chosen.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../../js/banners-script.js"></script>
+    <script src="../../chosen/chosen.jquery.js"></script>
+
+
+    <title>Add banner</title>
+</head>
+<body>
+    <div th:insert="fragments/header :: header" class="container"/>
+    <div class="container">
+        <main>
+            <div th:replace="fragments/banners-left-panel :: left-panel"/>
+            <div class="right-panel">
+                <h2>Create new banner</h2>
+                <form th:action="@{/banners}" th:object="${banner}" method="POST">
+                    <div class="name-of-string">Name</div><input class="value-of-string special-font-size" type="text" name="name">
+                    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="errors">Name error</div>
+
+                    <div class="name-of-string">Price</div><input class="value-of-string special-font-size" type="number" step="0.01" name="price">
+                    <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="errors">Price error</div>
+
+
+                    <div class="name-of-string">Category</div>
+                    <select multiple="multiple" name="categoryRequestIds" class="chosen-select" >
+                        <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.requestId}" th:unless="${category.deleted}" class="special-font-size"/>
+                    </select>
+
+                    <div class="name-of-string">Text field</div><textarea class="value-of-string special-font-size" name="textField"></textarea>
+                    <div th:if="${#fields.hasErrors('textField')}" th:errors="*{textField}" class="errors">Text field error</div>
+
+                    <button type="submit" id="save-button" class="special-font-size">Save</button>
+                </form>
+                <button id="back-button"><a href="/banners" class="special-font-size">Back</a></button>
+            </div>
+        </main>
+    </div>
+    <div th:insert="fragments/footer :: footer" class="container"/>
+</body>
+</html>

@@ -1,0 +1,12 @@
+#header-banners{
+    color: #03a9f4;
+    padding-left: 10px;
+    background-image: url('../img/pointer.png');
+    background-size: 8px;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+#header-categories{
+    color: #000000;
+}

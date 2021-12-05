@@ -1,0 +1,11 @@
+#header-banners{
+    color: #000000;
+}
+
+#header-categories{
+    color: #03a9f4;
+    background-image: url('../img/pointer.png');
+    background-size: 8px;
+    background-repeat: no-repeat;
+    background-position: left;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/banners-style.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../../js/banners-script.js"></script>
+
+    <title>Banners</title>
+</head>
+<body>
+    <div th:insert="fragments/header :: header" class="container"/>
+    <div class="container">
+        <main>
+            <div th:replace="fragments/banners-left-panel :: left-panel"/>
+            <div th:insert="fragments/banner :: banner" class="right-panel"/>
+        </main>
+    </div>
+    <div th:insert="fragments/footer :: footer" class="container"/>
+</body>
+</html>

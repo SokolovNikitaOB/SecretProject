@@ -1,0 +1,10 @@
+<div th:fragment="left-panel" class="left-panel">
+    <h2>Categories:</h2>
+    <input type="text" id="search-category" name="search" placeholder="Enter category name..." class="special-font-size">
+    <ul>
+        <li th:each="category : ${categories}">
+            <a th:unless="${category.deleted}" th:text="${category.name}" th:href="'/categories/' + ${category.id}" class="special-font-size"/>
+        </li>
+    </ul>
+    <button><a href="/categories/add" class="special-font-size">Create new category</a></button>
+</div>
